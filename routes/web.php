@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminAccountsController;
+use App\Http\Controllers\CollegeStudentAccountsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +22,11 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::resource('/AdminAccounts', AdminAccountsController::class);
+
+Route::resource('/CollegeStudentAccounts', CollegeStudentAccountsController::class);

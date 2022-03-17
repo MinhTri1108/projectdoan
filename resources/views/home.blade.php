@@ -1,5 +1,22 @@
-<h1 style = "baco: black;">xin chào các bạn</h1>
-<?php
-echo date('Y-m-d H:i:s');
-echo env('APP_ENV');
-?>
+@extends('layouts.app')
+
+@section('content')
+@include('layouts.navadmin')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Trường Đại Học Quy Nhơn</div>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
